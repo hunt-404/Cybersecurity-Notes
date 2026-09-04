@@ -1,0 +1,320 @@
+/* 
+   ====================================================================
+   Obsidian Ultimate Premium Aesthetic (Preserve Text Color on Bold)
+   ====================================================================
+*/
+
+/* --- 1. Global Scaling, Page Width & Rounded Radii --- */
+body {
+    zoom: 120%; 
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    --file-line-width: 1200px;
+    --file-line-width-normal: 1200px;
+    
+    --radius-s: 8px;
+    --radius-m: 12px;
+    --radius-l: 16px;
+}
+
+input[type="text"],
+input[type="search"],
+textarea,
+select,
+.modal,
+.menu,
+.suggestion-container,
+.callout,
+pre,
+code,
+img,
+video,
+.workspace-leaf {
+    border-radius: var(--radius-m) !important;
+}
+
+/* --- 2. Custom Panel Widths (Right & Left Sidebars) --- */
+.workspace-split.mod-right-split {
+    width: 520px !important;
+    min-width: 520px !important;
+}
+
+.workspace-split.mod-left-split {
+    width: 220px !important;
+    min-width: 220px !important;
+}
+
+/* --- 3. Custom Heading Colors --- */
+body {
+  --h1-color: #f87171; /* Soft Light Red */
+  --h2-color: #fb923c; /* Soft Light Orange */
+  --h3-color: #65a30d; /* Army Green / H3 */
+  --h4-color: #facc15; /* Yellow */
+  --h5-color: #60a5fa; /* Light Navy Blue */
+  --h6-color: #c084fc; /* Pastel Purple */
+}
+
+.inline-title {
+    color: var(--h1-color);
+    white-space: pre-wrap;
+    margin-block-end: var(--inline-title-margin-bottom);
+}
+
+.markdown-preview-view h1,
+.cm-header-1,
+.markdown-rendered h1 {
+    color: var(--h1-color) !important;
+}
+
+.markdown-preview-view h2,
+.cm-header-2,
+.markdown-rendered h2 {
+    color: var(--h2-color) !important;
+}
+
+.markdown-preview-view h3,
+.cm-header-3,
+.markdown-rendered h3 {
+    color: var(--h3-color) !important;
+}
+
+.markdown-preview-view h4,
+.cm-header-4,
+.markdown-rendered h4 {
+    color: var(--h4-color) !important;
+}
+
+.markdown-preview-view h5,
+.cm-header-5,
+.markdown-rendered h5 {
+    color: var(--h5-color) !important;
+}
+
+.markdown-preview-view h6,
+.cm-header-6,
+.markdown-rendered h6 {
+    color: var(--h6-color) !important;
+}
+
+/* --- 4. Text Styles & Links (Ensuring bold text inherits color instead of overriding) --- */
+.markdown-preview-view strong, 
+.cm-strong,
+.markdown-rendered strong { 
+    color: inherit !important; 
+    font-weight: bold;
+}
+
+.markdown-preview-view em, .cm-em { color: #56B6C2; }
+
+.markdown-preview-view .internal-link,
+.markdown-preview-view .markdown-rendered .internal-link,
+.cm-hmd-internal-link,
+.cm-link.cm-hmd-internal-link,
+span.cm-link.cm-hmd-internal-link,
+.cm-s-obsidian span.cm-link.cm-hmd-internal-link {
+    color: #82c4fa !important;
+    text-decoration: none;
+}
+
+.cm-link { color: #82c4fa !important; }
+
+.markdown-preview-view .internal-link:hover,
+.markdown-preview-view .markdown-rendered .internal-link:hover,
+.cm-hmd-internal-link:hover,
+.cm-link.cm-hmd-internal-link:hover {
+    color: #61AFEF !important;
+    text-decoration: underline;
+}
+
+.markdown-source-view.mod-cm6 .cm-link .cm-underline, 
+.markdown-source-view.mod-cm6 .cm-url .cm-underline {
+    color: rgb(77, 196, 239);
+    text-decoration-line: var(--link-external-decoration);
+}
+
+.cm-hmd-internal-link .cm-underline { color: inherit !important; }
+.is-focused .workspace-leaf.mod-active .view-header-title { color: #ffd381; }
+
+/* --- 5. Inline Code Styling --- */
+.code-styler.code-styler-style-inline .cm-s-obsidian span.cm-inline-code, 
+.code-styler.code-styler-style-inline .markdown-rendered :not(pre) > code:not([class*=blur]), 
+.code-styler.code-styler-style-inline .reveal :not(pre) > code:not([class*=blur]), 
+.code-styler.code-styler-style-inline code.code-styler-settings-inline-code,
+:not(pre) > code {
+    background-color: #9999993b !important;
+    padding: 3px 6px !important;
+    border-radius: var(--radius-s) !important;
+}
+
+/* --- 6. Original Blockquotes & Rounded Callouts --- */
+.markdown-preview-view blockquote,
+.HyperMD-quote {
+    color: #ABB2BF;
+    border-left-color: #5fadec;
+    border-radius: 0 var(--radius-m) var(--radius-m) 0;
+}
+
+.callout {
+    border-radius: var(--radius-m) !important;
+}
+
+/* --- 7. Aesthetic Clean Tables (Full Border, Column Lines in Header & Body) --- */
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid rgba(128, 128, 128, 0.25) !important;
+    width: max-content !important;
+    max-width: 100%;
+    margin: 2rem 0;
+    box-shadow: none;
+    border-radius: 4px !important;
+    overflow: hidden;
+    background-color: transparent !important;
+}
+
+/* 1. Complete Main Row (Header with Column Dividers) */
+thead tr {
+    background-color: rgba(101, 163, 13, 0.1) !important;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2) !important;
+}
+
+th {
+    position: relative;
+    border: none !important;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2) !important;
+    background-color: rgba(101, 163, 13, 0.1) !important;
+    color: var(--text-normal) !important;
+    padding: 4px 10px !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.05em;
+    text-align: center;
+    white-space: nowrap;
+}
+
+th:first-child {
+    text-align: left;
+    padding-left: 12px !important;
+    border-top-left-radius: 4px !important;
+}
+
+th:last-child {
+    padding-right: 12px !important;
+    border-top-right-radius: 4px !important;
+}
+
+/* Header Column Dividers */
+th:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    right: 0;
+    width: 1px;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+/* 2. Body Cells */
+td {
+    position: relative;
+    border: none !important;
+    background-color: transparent !important;
+    color: var(--text-normal);
+    padding: 4px 10px !important;
+    text-align: center;
+    font-size: 0.95em;
+    white-space: nowrap;
+}
+
+td:first-child {
+    text-align: left;
+    padding-left: 12px !important;
+    color: var(--text-normal);
+}
+
+td:last-child {
+    padding-right: 12px !important;
+}
+
+/* Bottom Outer Corners of the Unified Table */
+tbody tr:last-child td:first-child { 
+    border-bottom-left-radius: 4px !important; 
+}
+tbody tr:last-child td:last-child { 
+    border-bottom-right-radius: 4px !important; 
+}
+
+/* Inset Column Lines */
+td:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+tbody tr:first-child td:not(:last-child)::after {
+    top: 4px;
+}
+
+tbody tr:last-child td:not(:last-child)::after {
+    bottom: 4px;
+}
+
+/* Inset Row Lines */
+tbody tr:not(:last-child) td::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+tbody tr:not(:last-child) td:first-child::before {
+    left: 6px;
+}
+
+tbody tr:not(:last-child) td:last-child::before {
+    right: 6px;
+}
+
+/* Dark Mode Adaptation */
+body.theme-dark thead tr,
+body.theme-dark th {
+    background-color: rgba(77, 124, 15, 0.15) !important;
+    color: var(--text-normal) !important;
+    border-bottom-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+body.theme-dark table {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.theme-dark th:not(:last-child)::after {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+body.theme-dark td {
+    background-color: transparent !important;
+    color: var(--text-normal);
+}
+
+body.theme-dark td:not(:last-child)::after {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+body.theme-dark tbody tr:not(:last-child) td::before {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* --- 8. Task List Styling --- */
+ul.contains-task-list li.task-list-item.is-checked {
+    color: var(--text-faint);
+    text-decoration: line-through;
+    opacity: 0.5;
+}

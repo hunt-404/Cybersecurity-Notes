@@ -1,0 +1,384 @@
+{
+  "id": "08169f5d-4667-4644-b3ad-475ac2dacdaf",
+  "title": "In Level 1 - Basics of everything before diving de",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "In Level 1 - Basics of everything before diving deep!",
+                  "type": "text",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "make every H5, H4 and H3 callout of [!abstract]",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nIn Level 1 - Basics of everything before diving deep!\nmake every H5, H4 and H3 callout of [!abstract]\n\n"
+        }
+      ],
+      "id": "0bdeebdc-d715-474e-9b2b-319c4e52d433",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Concepts/Directory Busting - Web Application (Security Misconfigurations).md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Here are the updates for the \"Level 1\" section, converting the H4 and H5 headers into `[!abstract]` callouts.\n\n<smtcmp_block filename=\"Concepts/Directory Busting - Web Application (Security Misconfigurations).md\" language=\"markdown\">\n<!-- ... existing content ... -->\n___\n## Level 1 - Basics of everything before diving deep!\n> [!abstract] What Is Web Application Penetration Testing? \n> **Web Application Penetration Testing** is the process of legally testing a website or web application to find security weaknesses before attackers find them.\n> \n> Think of a web application like a house:\n> \n> | Real World     | Web Application          |\n> | -------------- | ------------------------ |\n> | House address  | Domain/IP address        |\n> | Doors/windows  | Web pages/endpoints      |\n> | Locks          | Authentication systems   |\n> | Hidden rooms   | Hidden directories/files |\n> | Keys           | Passwords/tokens         |\n> | Security flaws | Vulnerabilities          |\n\n> [!abstract] Web Penetration Testing Workflow\n> - Server Discovery: Identifies the web server.\n> - Content Enumeration: Finds hidden directories/files.\n> - Admin Panel: Discovers an exposed administrative panel.\n> - Credential Access: Tests default credentials.\n> - Unauthorized Access: Gains admin access using default credentials.\n\n> [!abstract] What Is a Web Server?\n> A **web server** is software that receives requests from users and returns web content.\n> \n> |Web Server|Description|\n> |---|---|\n> |Apache|Popular open-source web server|\n> |Nginx|High-performance web server|\n> |IIS|Microsoft web server|\n\n> [!abstract] What Is HTTP?\n> **HTTP (HyperText Transfer Protocol)** is the communication language used between browsers and web servers.\n> \n> It defines how:\n> - Requests are sent.\n> - Responses are returned.\n> - Web pages are loaded.\n> \n> Example:\n> Browser sends:\n> ```\n> GET /index.html HTTP/1.1\n> ```\n> \n> Meaning:\n> > \"Server, give me the index.html page.\"\n> \n> Server replies:\n> ```\n> HTTP/1.1 200 OK\n> ```\n> \n> Meaning:\n> > \"Request successful.\"\n> \n> > [!abstract] Important HTTP Methods\n> > A method tells the server what action the client wants.\n> > \n> > |Method|Purpose|\n> > |---|---|\n> > |GET|Retrieve data/page|\n> > |POST|Send data|\n> > |PUT|Upload/update data|\n> > |DELETE|Remove data|\n\n> [!abstract] What Is Directory Busting?\n> Directory busting is searching a website for hidden files and folders.\n> \n> Websites often contain:\n> ```\n> /admin\n> /login\n> /backup\n> /test\n> /uploads\n> ```\n> but these may not appear on the homepage.\n> \n> A normal user sees:\n> ```\n> website.com\n> ```\n> \n> A tester searches:\n> ```\n> website.com/admin\n> website.com/backup\n> website.com/uploads\n> ```\n> \n> > [!abstract] What are Hidden Pages & Why do they Exist?\n> > ###### Definition\n> > Hidden pages are web pages or directories that are **not linked from the main website navigation** but can still be accessed if their URL is discovered.\n> > ###### Why they Exist\n> > - **Admin Panels:** Manage website settings and users.\n> > - **Developer Pages:** Used for testing and debugging.\n> > - **Internal Tools:** Support administrative or operational tasks.\n> > Example:\n> > ```\n> > example.com/admin.php\n> > ```\n> > ###### Security Risks\n> > - **Forgotten Pages:** Old pages remain accessible.\n> > - **Old Applications:** Outdated software may contain vulnerabilities.\n> > - **Default Installations:** Default setup pages or credentials remain active.\n> > - **Weak Authentication:** Poor access controls allow unauthorized access.\n> > \n> > **Key Point:** Hidden does not mean secure.\n\n> [!abstract] What Is an Administrative Panel?\n> An administrative panel is a restricted interface used by administrators to control a website.\n> Example:\n> WordPress:\n> ```\n> website.com/wp-admin\n> ```\n> \n> Admin panels allow:\n> - Uploading content.\n> - Changing settings.\n> - Managing users.\n> \n> **Administrative panels are normally protected by a login screen**.\n\n> [!abstract] What Is Security Misconfiguration?\n> Security misconfiguration happens when a system is installed or configured incorrectly, creating unnecessary exposure.\n> \n> Examples:\n> \n> |Misconfiguration|Risk|\n> |---|---|\n> |Default password|Unauthorized login|\n> |Exposed admin page|Attackers find management interface|\n> |Default installation page|Reveals technology|\n> |Unnecessary services|Larger attack surface|\n\n> [!abstract] Default Credentials\n> Default credentials are usernames and passwords provided by software manufacturers.\n> \n> Examples:\n> ```\n> admin:admin\n> admin:password\n> root:root\n> ```\n> \n> Many administrators forget to change them.\n> Attackers try these first because they are:\n> - Easy.\n> - Common.\n> - Frequently successful.\n\n> [!abstract] The Attack Chain\n> ```\n> 1. Find Target\n>         ↓\n> 2. Scan Services\n>         ↓\n> 3. Identify Web Server\n>         ↓\n> 4. Enumerate Hidden Content\n>         ↓\n> 5. Discover Admin Panel\n>         ↓\n> 6. Test Authentication\n>         ↓\n> 7. Gain Access\n> ```\n____\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "3908e166-d888-4426-8bc7-d3a2c85f1003",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 2473,
+          "completion_tokens": 1373,
+          "total_tokens": 4941
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Now make the the H2 in a callout as well of abstract",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nNow make the the H2 in a callout as well of abstract\n\n"
+        }
+      ],
+      "id": "c61e5a32-d36c-49f8-8ea8-f76516d33af5",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Concepts/Directory Busting - Web Application (Security Misconfigurations).md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "I have wrapped the **Level 1** section into a parent `[!abstract]` callout. Note that the existing callouts within this section are now nested.\n\n<smtcmp_block filename=\"Concepts/Directory Busting - Web Application (Security Misconfigurations).md\" language=\"markdown\">\n<!-- ... existing content ... -->\n___\n> [!abstract] Level 1 - Basics of everything before diving deep!\n> > [!abstract] What Is Web Application Penetration Testing? \n> > **Web Application Penetration Testing** is the process of legally testing a website or web application to find security weaknesses before attackers find them.\n> > \n> > Think of a web application like a house:\n> > \n> > | Real World     | Web Application          |\n> > | -------------- | ------------------------ |\n> > | House address  | Domain/IP address        |\n> > | Doors/windows  | Web pages/endpoints      |\n> > | Locks          | Authentication systems   |\n> > | Hidden rooms   | Hidden directories/files |\n> > | Keys           | Passwords/tokens         |\n> > | Security flaws | Vulnerabilities          |\n> \n> > [!abstract] Web Penetration Testing Workflow\n> > - Server Discovery: Identifies the web server.\n> > - Content Enumeration: Finds hidden directories/files.\n> > - Admin Panel: Discovers an exposed administrative panel.\n> > - Credential Access: Tests default credentials.\n> > - Unauthorized Access: Gains admin access using default credentials.\n> \n> > [!abstract] What Is a Web Server?\n> > A **web server** is software that receives requests from users and returns web content.\n> > \n> > |Web Server|Description|\n> > |---|---|\n> > |Apache|Popular open-source web server|\n> > |Nginx|High-performance web server|\n> > |IIS|Microsoft web server|\n> \n> > [!abstract] What Is HTTP?\n> > **HTTP (HyperText Transfer Protocol)** is the communication language used between browsers and web servers.\n> > \n> > It defines how:\n> > - Requests are sent.\n> > - Responses are returned.\n> > - Web pages are loaded.\n> > \n> > Example:\n> > Browser sends:\n> > ```\n> > GET /index.html HTTP/1.1\n> > ```\n> > \n> > Meaning:\n> > > \"Server, give me the index.html page.\"\n> > \n> > Server replies:\n> > ```\n> > HTTP/1.1 200 OK\n> > ```\n> > \n> > Meaning:\n> > > \"Request successful.\"\n> > \n> > > [!abstract] Important HTTP Methods\n> > > A method tells the server what action the client wants.\n> > > \n> > > |Method|Purpose|\n> > > |---|---|\n> > > |GET|Retrieve data/page|\n> > > |POST|Send data|\n> > > |PUT|Upload/update data|\n> > > |DELETE|Remove data|\n> \n> > [!abstract] What Is Directory Busting?\n> > Directory busting is searching a website for hidden files and folders.\n> > \n> > Websites often contain:\n> > ```\n> > /admin\n> > /login\n> > /backup\n> > /test\n> > /uploads\n> > ```\n> > but these may not appear on the homepage.\n> > \n> > A normal user sees:\n> > ```\n> > website.com\n> > ```\n> > \n> > A tester searches:\n> > ```\n> > website.com/admin\n> > website.com/backup\n> > website.com/uploads\n> > ```\n> > \n> > > [!abstract] What are Hidden Pages & Why do they Exist?\n> > > ###### Definition\n> > > Hidden pages are web pages or directories that are **not linked from the main website navigation** but can still be accessed if their URL is discovered.\n> > > ###### Why they Exist\n> > > - **Admin Panels:** Manage website settings and users.\n> > > - **Developer Pages:** Used for testing and debugging.\n> > > - **Internal Tools:** Support administrative or operational tasks.\n> > > Example:\n> > > ```\n> > > example.com/admin.php\n> > > ```\n> > > ###### Security Risks\n> > > - **Forgotten Pages:** Old pages remain accessible.\n> > > - **Old Applications:** Outdated software may contain vulnerabilities.\n> > > - **Default Installations:** Default setup pages or credentials remain active.\n> > > - **Weak Authentication:** Poor access controls allow unauthorized access.\n> > > \n> > > **Key Point:** Hidden does not mean secure.\n> \n> > [!abstract] What Is an Administrative Panel?\n> > An administrative panel is a restricted interface used by administrators to control a website.\n> > Example:\n> > WordPress:\n> > ```\n> > website.com/wp-admin\n> > ```\n> > \n> > Admin panels allow:\n> > - Uploading content.\n> > - Changing settings.\n> > - Managing users.\n> > \n> > **Administrative panels are normally protected by a login screen**.\n> \n> > [!abstract] What Is Security Misconfiguration?\n> > Security misconfiguration happens when a system is installed or configured incorrectly, creating unnecessary exposure.\n> > \n> > Examples:\n> > \n> > |Misconfiguration|Risk|\n> > |---|---|\n> > |Default password|Unauthorized login|\n> > |Exposed admin page|Attackers find management interface|\n> > |Default installation page|Reveals technology|\n> > |Unnecessary services|Larger attack surface|\n> \n> > [!abstract] Default Credentials\n> > Default credentials are usernames and passwords provided by software manufacturers.\n> > \n> > Examples:\n> > ```\n> > admin:admin\n> > admin:password\n> > root:root\n> > ```\n> > \n> > Many administrators forget to change them.\n> > Attackers try these first because they are:\n> > - Easy.\n> > - Common.\n> > - Frequently successful.\n> \n> > [!abstract] The Attack Chain\n> > ```\n> > 1. Find Target\n> >         ↓\n> > 2. Scan Services\n> >         ↓\n> > 3. Identify Web Server\n> >         ↓\n> > 4. Enumerate Hidden Content\n> >         ↓\n> > 5. Discover Admin Panel\n> >         ↓\n> > 6. Test Authentication\n> >         ↓\n> > 7. Gain Access\n> > ```\n____\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "7390422b-8c0d-4b95-a3a5-f3588f61947b",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 3864,
+          "completion_tokens": 1565,
+          "total_tokens": 6921
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Make the examples heading in example callout and all H5 headings in question callout without any title heading",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nMake the examples heading in example callout and all H5 headings in question callout without any title heading\n\n"
+        }
+      ],
+      "id": "fa74b1ab-54f1-4234-85df-036766be37ec",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Concepts/Directory Busting - Web Application (Security Misconfigurations).md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "I have updated the **Level 1** section. All `H5` headings are now `[!question]` callouts without titles, and the `Examples:` headings are now `[!example]` callouts.\n\n<smtcmp_block filename=\"Concepts/Directory Busting - Web Application (Security Misconfigurations).md\" language=\"markdown\">\n<!-- ... existing content ... -->\n___\n> [!abstract] Level 1 - Basics of everything before diving deep!\n<!-- ... existing content ... -->\n> > [!abstract] What Is HTTP?\n<!-- ... existing content ... -->\n> > > [!question]\n> > > A method tells the server what action the client wants.\n> > > \n> > > |Method|Purpose|\n> > > |---|---|\n> > > |GET|Retrieve data/page|\n> > > |POST|Send data|\n> > > |PUT|Upload/update data|\n> > > |DELETE|Remove data|\n> \n> > [!abstract] What Is Directory Busting?\n<!-- ... existing content ... -->\n> > > [!question]\n> > > ###### Definition\n> > > Hidden pages are web pages or directories that are **not linked from the main website navigation** but can still be accessed if their URL is discovered.\n> > > ###### Why they Exist\n> > > - **Admin Panels:** Manage website settings and users.\n> > > - **Developer Pages:** Used for testing and debugging.\n> > > - **Internal Tools:** Support administrative or operational tasks.\n> > > Example:\n> > > ```\n> > > example.com/admin.php\n> > > ```\n> > > ###### Security Risks\n> > > - **Forgotten Pages:** Old pages remain accessible.\n> > > - **Old Applications:** Outdated software may contain vulnerabilities.\n> > > - **Default Installations:** Default setup pages or credentials remain active.\n> > > - **Weak Authentication:** Poor access controls allow unauthorized access.\n> > > \n> > > **Key Point:** Hidden does not mean secure.\n<!-- ... existing content ... -->\n> > [!abstract] What Is Security Misconfiguration?\n> > Security misconfiguration happens when a system is installed or configured incorrectly, creating unnecessary exposure.\n> > \n> > > [!example]\n> > > |Misconfiguration|Risk|\n> > > |---|---|\n> > > |Default password|Unauthorized login|\n> > > |Exposed admin page|Attackers find management interface|\n> > > |Default installation page|Reveals technology|\n> > > |Unnecessary services|Larger attack surface|\n> \n> > [!abstract] Default Credentials\n> > Default credentials are usernames and passwords provided by software manufacturers.\n> > \n> > > [!example]\n> > > ```\n> > > admin:admin\n> > > admin:password\n> > > root:root\n> > > ```\n> > \n> > Many administrators forget to change them.\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "e1be1191-00ba-45c7-bdbe-e5fc9dea9a7a",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 5454,
+          "completion_tokens": 688,
+          "total_tokens": 7831
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "What Is HTTP?",
+                  "type": "text",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "keep these questions as well within the callout where you find \"?\" keep that complete heading and its under things in question callout",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nWhat Is HTTP?\n\nkeep these questions as well within the callout where you find \"?\" keep that complete heading and its under things in question callout\n\n"
+        }
+      ],
+      "id": "d1f9adef-c1d0-4627-939b-e52bad6830f4",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Concepts/Directory Busting - Web Application (Security Misconfigurations).md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "I have updated the callouts in the **Level 1** section. Headings ending with a question mark (`?`) now use the `[!question]` callout type with the full heading as the title.\n\n<smtcmp_block filename=\"Concepts/Directory Busting - Web Application (Security Misconfigurations).md\" language=\"markdown\">\n<!-- ... existing content ... -->\n___\n> [!abstract] Level 1 - Basics of everything before diving deep!\n> > [!question] What Is Web Application Penetration Testing? \n> > **Web Application Penetration Testing** is the process of legally testing a website or web application to find security weaknesses before attackers find them.\n> > \n<!-- ... existing content ... -->\n> > [!abstract] Web Penetration Testing Workflow\n<!-- ... existing content ... -->\n> > [!question] What Is a Web Server?\n> > A **web server** is software that receives requests from users and returns web content.\n> > \n<!-- ... existing content ... -->\n> > [!question] What Is HTTP?\n> > **HTTP (HyperText Transfer Protocol)** is the communication language used between browsers and web servers.\n<!-- ... existing content ... -->\n> > > [!question]\n> > > A method tells the server what action the client wants.\n<!-- ... existing content ... -->\n> > [!question] What Is Directory Busting?\n> > Directory busting is searching a website for hidden files and folders.\n<!-- ... existing content ... -->\n> > > [!question] What are Hidden Pages & Why do they Exist?\n> > > ###### Definition\n> > > Hidden pages are web pages or directories that are **not linked from the main website navigation** but can still be accessed if their URL is discovered.\n<!-- ... existing content ... -->\n> > [!question] What Is an Administrative Panel?\n> > An administrative panel is a restricted interface used by administrators to control a website.\n<!-- ... existing content ... -->\n> > [!question] What Is Security Misconfiguration?\n> > Security misconfiguration happens when a system is installed or configured incorrectly, creating unnecessary exposure.\n> > \n> > > [!example]\n<!-- ... existing content ... -->\n> > [!abstract] Default Credentials\n> > Default credentials are usernames and passwords provided by software manufacturers.\n> > \n> > > [!example]\n<!-- ... existing content ... -->\n> > [!abstract] The Attack Chain\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "746a28de-020b-43cc-895e-592934529990",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 6176,
+          "completion_tokens": 545,
+          "total_tokens": 8281
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Revert all the changes to original",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nRevert all the changes to original\n\n"
+        }
+      ],
+      "id": "267f7f0c-451b-427b-89c2-e2ea9d5bd84e",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Concepts/Directory Busting - Web Application (Security Misconfigurations).md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "I have reverted the \"Level 1\" section to its original structure as provided in your first message, restoring the standard markdown headings and the original callout block.\n\n<smtcmp_block filename=\"Concepts/Directory Busting - Web Application (Security Misconfigurations).md\" language=\"markdown\">\n<!-- ... existing content ... -->\n___\n## Level 1 - Basics of everything before diving deep!\n#### What Is Web Application Penetration Testing? \n**Web Application Penetration Testing** is the process of legally testing a website or web application to find security weaknesses before attackers find them.\n\nThink of a web application like a house:\n\n| Real World     | Web Application          |\n| -------------- | ------------------------ |\n| House address  | Domain/IP address        |\n| Doors/windows  | Web pages/endpoints      |\n| Locks          | Authentication systems   |\n| Hidden rooms   | Hidden directories/files |\n| Keys           | Passwords/tokens         |\n| Security flaws | Vulnerabilities          |\n#### Web Penetration Testing Workflow\n- Server Discovery: Identifies the web server.\n- Content Enumeration: Finds hidden directories/files.\n- Admin Panel: Discovers an exposed administrative panel.\n- Credential Access: Tests default credentials.\n- Unauthorized Access: Gains admin access using default credentials.\n\n#### What Is a Web Server?\nA **web server** is software that receives requests from users and returns web content.\n\n|Web Server|Description|\n|---|---|\n|Apache|Popular open-source web server|\n|Nginx|High-performance web server|\n|IIS|Microsoft web server|\n#### What Is HTTP?\n**HTTP (HyperText Transfer Protocol)** is the communication language used between browsers and web servers.\n\nIt defines how:\n- Requests are sent.\n- Responses are returned.\n- Web pages are loaded.\n\nExample:\nBrowser sends:\n```\nGET /index.html HTTP/1.1\n```\n\nMeaning:\n> \"Server, give me the index.html page.\"\n\nServer replies:\n```\nHTTP/1.1 200 OK\n```\n\nMeaning:\n> \"Request successful.\"\n\n##### Important HTTP Methods\nA method tells the server what action the client wants.\n\n|Method|Purpose|\n|---|---|\n|GET|Retrieve data/page|\n|POST|Send data|\n|PUT|Upload/update data|\n|DELETE|Remove data|\n#### What Is Directory Busting?\nDirectory busting is searching a website for hidden files and folders.\n\nWebsites often contain:\n```\n/admin\n/login\n/backup\n/test\n/uploads\n```\nbut these may not appear on the homepage.\n\nA normal user sees:\n```\nwebsite.com\n```\n\nA tester searches:\n```\nwebsite.com/admin\nwebsite.com/backup\nwebsite.com/uploads\n```\n\n##### What are Hidden Pages & Why do they Exist?\n###### Definition\nHidden pages are web pages or directories that are **not linked from the main website navigation** but can still be accessed if their URL is discovered.\n###### Why they Exist\n- **Admin Panels:** Manage website settings and users.\n- **Developer Pages:** Used for testing and debugging.\n- **Internal Tools:** Support administrative or operational tasks.\nExample:\n```\nexample.com/admin.php\n```\n###### Security Risks\n- **Forgotten Pages:** Old pages remain accessible.\n- **Old Applications:** Outdated software may contain vulnerabilities.\n- **Default Installations:** Default setup pages or credentials remain active.\n- **Weak Authentication:** Poor access controls allow unauthorized access.\n\n**Key Point:** Hidden does not mean secure.\n\n#### What Is an Administrative Panel?\nAn administrative panel is a restricted interface used by administrators to control a website.\nExample:\nWordPress:\n```\nwebsite.com/wp-admin\n```\n\nAdmin panels allow:\n- Uploading content.\n- Changing settings.\n- Managing users.\n\n**Administrative panels are normally protected by a login screen**.\n\n#### What Is Security Misconfiguration?\nSecurity misconfiguration happens when a system is installed or configured incorrectly, creating unnecessary exposure.\n\nExamples:\n\n|Misconfiguration|Risk|\n|---|---|\n|Default password|Unauthorized login|\n|Exposed admin page|Attackers find management interface|\n|Default installation page|Reveals technology|\n|Unnecessary services|Larger attack surface|\n\n#### Default Credentials\nDefault credentials are usernames and passwords provided by software manufacturers.\n\nExamples:\n```\nadmin:admin\nadmin:password\nroot:root\n```\n\nMany administrators forget to change them.\nAttackers try these first because they are:\n- Easy.\n- Common.\n- Frequently successful.\n\n#### The Attack Chain\n```\n1. Find Target\n        ↓\n2. Scan Services\n        ↓\n3. Identify Web Server\n        ↓\n4. Enumerate Hidden Content\n        ↓\n5. Discover Admin Panel\n        ↓\n6. Test Authentication\n        ↓\n7. Gain Access\n```\n\n> [!abstract] ## Level 1 - Basics of everything before diving deep!\n> > [!question] What Is Web Application Penetration Testing? \n> > **Web Application Penetration Testing** is the process of legally testing a website or web application to find security weaknesses before attackers find them.\n> > \n> > Think of a web application like a house:\n> > \n> > | Real World     | Web Application          |\n> > | -------------- | ------------------------ |\n> > | House address  | Domain/IP address        |\n> > | Doors/windows  | Web pages/endpoints      |\n> > | Locks          | Authentication systems   |\n> > | Hidden rooms   | Hidden directories/files |\n> > | Keys           | Passwords/tokens         |\n> > | Security flaws | Vulnerabilities          |\n> >\n> >###### Web Penetration Testing Workflow\n> > - Server Discovery: Identifies the web server.\n> > - Content Enumeration: Finds hidden directories/files.\n> > - Admin Panel: Discovers an exposed administrative panel.\n> > - Credential Access: Tests default credentials.\n> > - Unauthorized Access: Gains admin access using default credentials.\n> \n> > [!question] What Is a Web Server?\n> > A **web server** is software that receives requests from users and returns web content.\n> > \n> > |Web Server|Description|\n> > |---|---|\n> > |Apache|Popular open-source web server|\n> > |Nginx|High-performance web server|\n> > |IIS|Microsoft web server|\n> \n> > [!question] What Is HTTP?\n> > **HTTP (HyperText Protocol)** is the communication language used between browsers and web servers.\n> > \n> > It defines how:\n> > - Requests are sent.\n> > - Responses are returned.\n> > - Web pages are loaded.\n> > \n> > \n> >  Browser sends:\n> >  ```\n> >  GET /index.html HTTP/1.1\n> >  ```\n> >  \n> >  Meaning:\n> >  > \"Server, give me the index.html page.\"\n> >  \n> >  Server replies:\n> >  ```\n> >  HTTP/1.1 200 OK\n> >  ```\n> >  \n> >  Meaning:\n> >  > \"Request successful.\"\n> > \n> > > [!question]\n> > > A method tells the server what action the client wants.\n> > > \n> > > |Method|Purpose|\n> > > |---|---|\n> > > |GET|Retrieve data/page|\n> > > |POST|Send data|\n> > > |PUT|Upload/update data|\n> > > |DELETE|Remove data|\n> \n> > [!question] What Is Directory Busting?\n> > Directory busting is searching a website for hidden files and folders.\n> > \n> > Websites often contain:\n> > ```\n> > /admin\n> > /login\n> > /backup\n> > /test\n> > /uploads\n> > ```\n> > but these may not appear on the homepage.\n> > \n> > A normal user sees:\n> > ```\n> > website.com\n> > ```\n> > \n> > A tester searches:\n> > ```\n> > website.com/admin\n> > website.com/backup\n> > website.com/uploads\n> > ```\n> > \n> > > [!question] What are Hidden Pages & Why do they Exist?\n> > > ###### Definition\n> > > Hidden pages are web pages or directories that are **not linked from the main website navigation** but can still be accessed if their URL is discovered.\n> > > ###### Why they Exist\n> > > - **Admin Panels:** Manage website settings and users.\n> > > - **Developer Pages:** Used for testing and debugging.\n> > > - **Internal Tools:** Support administrative or operational tasks.\n> > > > [!example]\n> > > > ```\n> > > > example.com/admin.php\n> > > > ```\n> > > ###### Security Risks\n> > > - **Forgotten Pages:** Old pages remain accessible.\n> > > - **Old Applications:** Outdated software may contain vulnerabilities.\n> > > - **Default Installations:** Default setup pages or credentials remain active.\n> > > - **Weak Authentication:** Poor access controls allow unauthorized access.\n> > > \n> > > **Key Point:** Hidden does not mean secure.\n> \n> > [!question] What Is an Administrative Panel?\n> > An administrative panel is a restricted interface used by administrators to control a website.\n> > > [!example]\n> > > WordPress:\n> > > ```\n> > > website.com/wp-admin\n> > > ```\n> > \n> > Admin panels allow:\n> > - Uploading content.\n> > - Changing settings.\n> > - Managing users.\n> > \n> > **Administrative panels are normally protected by a login screen**.\n> \n> > [!question] What Is Security Misconfiguration?\n> > Security misconfiguration happens when a system is installed or configured incorrectly, creating unnecessary exposure.\n> > \n> > > [!example]\n> > > |Misconfiguration|Risk|\n> > > |---|---|\n> > > |Default password|Unauthorized login|\n> > > |Exposed admin page|Attackers find management interface|",
+      "id": "471ca4ed-505b-4ac0-b9cc-b52b387fa44f",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 8246,
+          "completion_tokens": 2352,
+          "total_tokens": 11251
+        }
+      }
+    }
+  ],
+  "createdAt": 1788500406751,
+  "updatedAt": 1788501174860,
+  "schemaVersion": 1
+}

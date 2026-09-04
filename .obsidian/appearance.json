@@ -1,0 +1,13 @@
+{
+  "cssTheme": "Everforest",
+  "interfaceFontFamily": "Google Sans",
+  "textFontFamily": "Google Sans",
+  "baseFontSize": 17,
+  "baseFontSizeAction": true,
+  "enabledCssSnippets": [
+    "aesthetic"
+  ],
+  "theme": "obsidian",
+  "showViewHeader": true,
+  "showRibbon": true
+}

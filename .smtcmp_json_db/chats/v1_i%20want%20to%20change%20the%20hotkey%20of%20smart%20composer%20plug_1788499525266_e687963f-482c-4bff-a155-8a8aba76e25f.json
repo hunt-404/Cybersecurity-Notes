@@ -1,0 +1,79 @@
+{
+  "id": "e687963f-482c-4bff-a155-8a8aba76e25f",
+  "title": "i want to change the hotkey of smart composer plug",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "i want to change the hotkey of smart composer plugin from where can i do that",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\ni want to change the hotkey of smart composer plugin from where can i do that\n\n"
+        }
+      ],
+      "id": "3b4dcf00-04c9-4b2a-9187-44e746594a69",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Untitled.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "To change the hotkey for the **Smart Composer** plugin, follow these steps:\n\n1.  Open **Settings** (gear icon or `Ctrl+,`).\n2.  Navigate to the **Hotkeys** tab in the sidebar.\n3.  Search for \"Smart Composer\" in the search bar.\n4.  Locate the command you want to trigger (e.g., *Smart Composer: Open Composer*).\n5.  Click the **plus icon** (or the existing hotkey) to assign your preferred key combination.",
+      "id": "848e95f4-fd20-41a7-8fed-90379c29ad43",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 1179,
+          "completion_tokens": 113,
+          "total_tokens": 1440
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "EpQGCpEGARFNMg+fG6HWgRXZPgghQGfC+uz+a2OlKldcipifwb/XFRRPkn5tSHx9jjV4D2W7LgpXSrLQNi82F20G8IO1PEhQ91fbfGR+5g6SwibbUbhmfB63YRzmi50N63rAzw3WH8ZEPhaOBQP2JXp2rvvK4oolnOUqnpPJwyJ0D9DDJc6o/LIKluolU1C0XX91ec96Xau61QM9fPgxDU3DYE4QC2Dck0jEwCcGcBnsRUIcQ4KL98Tj7YY3R55WwWH7U9CqtKG04wBFVulHBgBXpAD2g579CEFzg01DH80iQIyAzoexXlyKPkzlPR7tdYWgHLRob6ED8V5BiV5g3W5Ss/7ebbe4IxUDRJlDbTdRn7pz5tuXUfPrE6CXKodKUlixtffx/HKdfalYYPLqBXwqBbiluxZ4AbrEpMgwcUiQJjWurRV9ibTzK5sS84lT+5gQINFTL/QGSPanPx9zUyJJjJyJJKHi5KCyYR0NTzx+p28qHTtmJmqgXZhhzht5Kq3wnZan+ZHSujZmVaHHlNezMac+GGpUeo3+aFk9eVTuJXMKzh1SuhFoYFc4Evsgg13vk6ffMsld6YbKF8vV0YrRYxKR2VmMm/WUqW+JqPCUyQM3w/INAeZeOSHLisfYuzZnX7sP4gz2IXGdbB2WmFJhQAcMdOCYorB0iSEM+iE0sNuZewsd9v8xwV/fjfpppfQ/mFaNbdG5ZWgi3ljxW1Y6drUEcDt/hgKe0iOV1F+cdtbUUGILbM5DbAzuIGXeeXt7drEccJLCOg7svyTgsJpKV++SrhRqLI/O4sey9gJvUgCFPxmyFtZtoTVik9hmxu6sb81zp3K50KsF/hd3K+Z7nOHtFV7rjZZNqdwrWdFPQrzaSjsJZTIcz6UlkIvLI12uTOKLVnLUrp0293FKseg8fyeuwmi9GSKtC+ZhalBFant40Y/QYuQZ0Shp/9aIVqXB/LFbAPBP9WJLj+MuA0H/PpIKnY0f5PRICw5sdTCEVkRlis3aKLrHjvZfCzXf8a224zjyDVaRAE4FM/MzilHyWTmulYI="
+        }
+      }
+    }
+  ],
+  "createdAt": 1788499518566,
+  "updatedAt": 1788499525266,
+  "schemaVersion": 1
+}
