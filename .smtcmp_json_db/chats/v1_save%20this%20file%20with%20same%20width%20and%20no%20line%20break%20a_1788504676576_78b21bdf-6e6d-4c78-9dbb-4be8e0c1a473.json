@@ -1,0 +1,56 @@
+{
+  "id": "78b21bdf-6e6d-4c78-9dbb-4be8e0c1a473",
+  "title": "save this file with same width and no line break a",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "save this file with same width and no line break as pdf on my device",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nsave this file with same width and no line break as pdf on my device\n\n"
+        }
+      ],
+      "id": "473d91e8-2a8d-45b1-a20d-14517bb29dcb",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Concepts/Directory Busting - Web Application (Security Misconfigurations).md"
+        }
+      ]
+    }
+  ],
+  "createdAt": 1788504676576,
+  "updatedAt": 1788504676576,
+  "schemaVersion": 1
+}

@@ -1,12 +1,13 @@
 /* 
    ====================================================================
-   Obsidian Ultimate Premium Aesthetic (Preserve Text Color on Bold)
+   Obsidian Ultimate Premium Aesthetic (Light Purple H5 & Beige H6)
    ====================================================================
 */
 
-/* --- 1. Global Scaling, Page Width & Rounded Radii --- */
+/* --- 1. Global Scaling, Page Width, Formal Font Size & Rounded Radii --- */
 body {
-    zoom: 120%; 
+    zoom: 100%; 
+    font-size: 16px; 
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     --file-line-width: 1200px;
@@ -21,14 +22,6 @@ input[type="text"],
 input[type="search"],
 textarea,
 select,
-.modal,
-.menu,
-.suggestion-container,
-.callout,
-pre,
-code,
-img,
-video,
 .workspace-leaf {
     border-radius: var(--radius-m) !important;
 }
@@ -44,14 +37,14 @@ video,
     min-width: 220px !important;
 }
 
-/* --- 3. Custom Heading Colors --- */
+/* --- 3. Custom Heading Colors (Hex & RGB Values Defined) --- */
 body {
-  --h1-color: #f87171; /* Soft Light Red */
-  --h2-color: #fb923c; /* Soft Light Orange */
-  --h3-color: #65a30d; /* Army Green / H3 */
-  --h4-color: #facc15; /* Yellow */
-  --h5-color: #60a5fa; /* Light Navy Blue */
-  --h6-color: #c084fc; /* Pastel Purple */
+  --h1-color: #39ff14; /* Neon Green (RGB: 57, 255, 20) */
+  --h2-color: #2da44e; /* GitHub Green (RGB: 45, 164, 78) */
+  --h3-color: #38bdf8; /* Adaptive Blue (RGB: 56, 189, 248) */
+  --h4-color: #93c5fd; /* Blue-Grey Mixture (RGB: 147, 197, 253) */
+  --h5-color: #c4b5fd; /* Light Purple (RGB: 196, 181, 253) */
+  --h6-color: #d4b896; /* Beige Light Brown (RGB: 212, 184, 150) */
 }
 
 .inline-title {
@@ -64,39 +57,52 @@ body {
 .cm-header-1,
 .markdown-rendered h1 {
     color: var(--h1-color) !important;
+    font-size: 2rem !important;
 }
 
 .markdown-preview-view h2,
 .cm-header-2,
 .markdown-rendered h2 {
     color: var(--h2-color) !important;
+    font-size: 1.5rem !important;
 }
 
 .markdown-preview-view h3,
 .cm-header-3,
 .markdown-rendered h3 {
     color: var(--h3-color) !important;
+    font-size: 1.25rem !important;
 }
 
 .markdown-preview-view h4,
 .cm-header-4,
 .markdown-rendered h4 {
     color: var(--h4-color) !important;
+    font-size: 1.1rem !important;
 }
 
 .markdown-preview-view h5,
 .cm-header-5,
 .markdown-rendered h5 {
     color: var(--h5-color) !important;
+    font-size: 1rem !important;
 }
 
 .markdown-preview-view h6,
 .cm-header-6,
 .markdown-rendered h6 {
     color: var(--h6-color) !important;
+    font-size: 0.9rem !important;
 }
 
-/* --- 4. Text Styles & Links (Ensuring bold text inherits color instead of overriding) --- */
+/* --- 4. Text Styles & Links --- */
+.markdown-preview-view p, 
+.markdown-rendered p,
+.cm-content {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+}
+
 .markdown-preview-view strong, 
 .cm-strong,
 .markdown-rendered strong { 
@@ -135,15 +141,32 @@ span.cm-link.cm-hmd-internal-link,
 .cm-hmd-internal-link .cm-underline { color: inherit !important; }
 .is-focused .workspace-leaf.mod-active .view-header-title { color: #ffd381; }
 
-/* --- 5. Inline Code Styling --- */
+/* --- 5. Inline Code (Default) & Code Block Styling (Terminal Black & White Text) --- */
 .code-styler.code-styler-style-inline .cm-s-obsidian span.cm-inline-code, 
 .code-styler.code-styler-style-inline .markdown-rendered :not(pre) > code:not([class*=blur]), 
 .code-styler.code-styler-style-inline .reveal :not(pre) > code:not([class*=blur]), 
 .code-styler.code-styler-style-inline code.code-styler-settings-inline-code,
 :not(pre) > code {
-    background-color: #9999993b !important;
     padding: 3px 6px !important;
     border-radius: var(--radius-s) !important;
+    font-size: 0.9rem !important;
+    /* Leaves single-backtick inline code at default theme colors */
+}
+
+pre, 
+code[class*="language-"], 
+pre[class*="language-"],
+.markdown-rendered pre,
+.cm-embed-block pre {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-radius: var(--radius-m) !important;
+}
+
+pre code,
+.markdown-rendered pre code,
+.cm-content .cm-line code {
+    color: #ffffff !important;
 }
 
 /* --- 6. Original Blockquotes & Rounded Callouts --- */
@@ -158,23 +181,24 @@ span.cm-link.cm-hmd-internal-link,
     border-radius: var(--radius-m) !important;
 }
 
-/* --- 7. Aesthetic Clean Tables (Full Border, Column Lines in Header & Body) --- */
+/* --- 7. Aesthetic Clean Tables (Content-Driven Width, Max-Width 1200px Cap) --- */
 table {
     border-collapse: separate;
     border-spacing: 0;
     border: 1px solid rgba(128, 128, 128, 0.25) !important;
     width: max-content !important;
-    max-width: 100%;
+    max-width: 1200px !important;
     margin: 2rem 0;
     box-shadow: none;
     border-radius: 4px !important;
     overflow: hidden;
     background-color: transparent !important;
+    font-size: 0.95em !important;
 }
 
 /* 1. Complete Main Row (Header with Column Dividers) */
 thead tr {
-    background-color: rgba(101, 163, 13, 0.1) !important;
+    background-color: rgba(45, 164, 78, 0.1) !important;
     border-bottom: 1px solid rgba(128, 128, 128, 0.2) !important;
 }
 
@@ -182,7 +206,7 @@ th {
     position: relative;
     border: none !important;
     border-bottom: 1px solid rgba(128, 128, 128, 0.2) !important;
-    background-color: rgba(101, 163, 13, 0.1) !important;
+    background-color: rgba(45, 164, 78, 0.1) !important;
     color: var(--text-normal) !important;
     padding: 4px 10px !important;
     font-weight: 600;
@@ -286,7 +310,7 @@ tbody tr:not(:last-child) td:last-child::before {
 /* Dark Mode Adaptation */
 body.theme-dark thead tr,
 body.theme-dark th {
-    background-color: rgba(77, 124, 15, 0.15) !important;
+    background-color: rgba(45, 164, 78, 0.15) !important;
     color: var(--text-normal) !important;
     border-bottom-color: rgba(255, 255, 255, 0.12) !important;
 }

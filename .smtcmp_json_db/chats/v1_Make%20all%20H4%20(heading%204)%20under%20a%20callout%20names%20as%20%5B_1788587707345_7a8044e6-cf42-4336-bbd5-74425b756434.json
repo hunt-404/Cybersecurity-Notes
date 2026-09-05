@@ -1,0 +1,278 @@
+{
+  "id": "7a8044e6-cf42-4336-bbd5-74425b756434",
+  "title": "Make all H4 (heading 4) under a callout names as [",
+  "messages": [
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Make all H4 (heading 4) under a callout names as [!h4]",
+                  "type": "text",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "start from the beiginning of heading till the beginning of next H4",
+                  "type": "text",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "include the heading in callout",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nMake all H4 (heading 4) under a callout names as [!h4]\nstart from the beiginning of heading till the beginning of next H4\ninclude the heading in callout\n\n"
+        }
+      ],
+      "id": "ef04610e-2039-459f-b6fb-7c38515c5a53",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Rsync Protocol.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "Here are the updates for `Rsync Protocol.md`, wrapping the content under H4 headings into callouts.\n\n<smtcmp_block filename=\"Rsync Protocol.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n___\n## LEVEL 1 — Basics\n> [!h4] #### What Is rsync?\n> **rsync** (Remote Sync) is a technology used to **copy and synchronize files between locations efficiently**.\n>\n> It can synchronize\n> - Files between two computers\n> - Files between local directories\n> - Backups between servers\n> - Website files between machines\n> - Data between a workstation and a remote server\n>\n> The key idea:\n> > rsync transfers only the parts of files that have changed instead of copying everything again.\n\n> [!h4] #### Why Does rsync Exist?\n> Before rsync, administrators often used simple file copying methods:\n>\n> Example:\n> ```\n> Server A                    Server B\n> \n> website.zip  ----------->   website.zip\n> (5 GB)                      (5 GB)\n> ```\n>\n> **Problem**:\n> If only one small file changed inside the 5 GB archive, the entire 5 GB had to be transferred again.\n>\n> This wastes:\n> - Network bandwidth\n> - Time\n> - Storage resources\n>\n> > rsync solves this by being **intelligent about synchronization**.\n>\n> ### Common rsync Usage Models\n> There are two major ways rsync works.\n\n> [!h4] #### Model 1: Local Synchronization\n> Both directories exist on the same machine.\n>\n> Example:\n> ```\n> Computer\n> \n> /home/user/data\n> \n>         |\n>         |\n>         ▼\n> \n> /backup/data\n> ```\n>\n> Command idea:\n> ```bash\n> rsync source destination\n> ```\n>\n> Example:\n> ```bash\n> rsync photos/ backup/\n> ```\n>\n> Meaning:\n> \"Synchronize the photos directory into backup.\"\n\n> [!h4] #### Model 2: Remote Synchronization\n> The source and destination are on different machines.\n>\n> Example:\n> ```\n> Attacker/Test Machine             Server\n> \n>      Client                       Server\n>         |                           |\n>         |------ rsync protocol ---->|\n>         |                           |\n> ```\n>\n> Used for:\n> - Backups\n> - Server replication\n> - File deployment\n>\n> ### Security Perspective\n>\n> ###### Why Attackers Care About rsync\n> From a penetration testing perspective, rsync is interesting because it may expose:\n> - Sensitive files\n> - Backup data\n> - Configuration files\n> - Credentials\n> - Source code\n> - Internal documents\n>\n> A poorly configured rsync service can accidentally become a data leak.\n>\n> ##### **Common Security Weaknesses**\n> | #   | Security Weakness         | EXPLANATION                                                                            | Risk                                                 |\n> | --- | ------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------- |\n> | 1   | Anonymous Access          | No authentication is required to access the rsync server.                              | Attackers may download exposed data.                 |\n> | 2   | Weak Access Control       | A user intended for `/backup/public` can access `/backup/all_system_files`.            | Sensitive files may be unintentionally exposed.      |\n> | 3   | Sensitive Backup Exposure | Backups may contain database dumps, password files, SSH keys, and application secrets. | Attackers can obtain highly valuable information.    |\n> | 4   | Poor File Permissions     | Example: `-rwxrwxrwx backup.tar.gz`                                                    | Too many users may access or modify sensitive files. |\n\n> [!h4] #### Normal Working\n> Before discussing attacks, understand how rsync works normally.\n> ###### Main Components\n> A basic rsync setup contains:\n> ```\n> +-------------+          +-------------+\n> |             |          |             |\n> |   Client    |  ----->  |   Server    |\n> |             |          |             |\n> +-------------+          +-------------+\n> \n>      Source              Destination\n> ```\n>\n> |Role|Description|Example|\n> |---|---|---|\n> |Client|Machine that starts the synchronization.|💻 Your laptop|\n> |Server|Machine that provides or receives files.|🖥️ A backup server|\n\n## LEVEL 2 — Deep Architecture & Internal Mechanics\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "769c55e4-0068-4b9c-badc-0b7bf1522443",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 1290,
+          "completion_tokens": 1035,
+          "total_tokens": 3151
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "make model 1 H4 and Model 2 H4 under following callout",
+                  "type": "text",
+                  "version": 1
+                },
+                {
+                  "type": "linebreak",
+                  "version": 1
+                },
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "Common rsync Usage Models",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            },
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "There are two major ways rsync works.",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nmake model 1 H4 and Model 2 H4 under following callout\nCommon rsync Usage ModelsThere are two major ways rsync works.\n\n"
+        }
+      ],
+      "id": "ac77ba4f-cee1-4267-bfb6-531133169c65",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Rsync Protocol.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "I have nested the **Model 1** and **Model 2** sections inside the **Common rsync Usage Models** callout.\n\n<smtcmp_block filename=\"Rsync Protocol.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n> [!h3] ### Common rsync Usage Models\n> There are two major ways rsync works.\n>\n> > [!h4] #### Model 1: Local Synchronization\n> > Both directories exist on the same machine.\n> >\n> > Example:\n> > ```\n> > Computer\n> > \n> > /home/user/data\n> > \n> >         |\n> >         |\n> >         ▼\n> > \n> > /backup/data\n> > ```\n> >\n> > Command idea:\n> > ```bash\n> > rsync source destination\n> > ```\n> >\n> > Example:\n> > ```bash\n> > rsync photos/ backup/\n> > ```\n> >\n> > Meaning:\n> > \"Synchronize the photos directory into backup.\"\n>\n> > [!h4] #### Model 2: Remote Synchronization\n> > The source and destination are on different machines.\n> >\n> > Example:\n> > ```\n> > Attacker/Test Machine             Server\n> > \n> >      Client                       Server\n> >         |                           |\n> >         |------ rsync protocol ---->|\n> >         |                           |\n> > ```\n> >\n> > Used for:\n> > - Backups\n> > - Server replication\n> > - File deployment\n> >\n> > ### Security Perspective\n> >\n> > ###### Why Attackers Care About rsync\n> > From a penetration testing perspective, rsync is interesting because it may expose:\n> > - Sensitive files\n> > - Backup data\n> > - Configuration files\n> > - Credentials\n> > - Source code\n> > - Internal documents\n> >\n> > A poorly configured rsync service can accidentally become a data leak.\n> >\n> > ##### **Common Security Weaknesses**\n> > | #   | Security Weakness         | EXPLANATION                                                                            | Risk                                                 |\n> > | --- | ------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------- |\n> > | 1   | Anonymous Access          | No authentication is required to access the rsync server.                              | Attackers may download exposed data.                 |\n> > | 2   | Weak Access Control       | A user intended for `/backup/public` can access `/backup/all_system_files`.            | Sensitive files may be unintentionally exposed.      |\n> > | 3   | Sensitive Backup Exposure | Backups may contain database dumps, password files, SSH keys, and application secrets. | Attackers can obtain highly valuable information.    |\n> > | 4   | Poor File Permissions     | Example: `-rwxrwxrwx backup.tar.gz`                                                    | Too many users may access or modify sensitive files. |\n\n> [!h4] #### Normal Working\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "4e36ebaa-445e-4123-bdcc-9a3b760d6392",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 2539,
+          "completion_tokens": 695,
+          "total_tokens": 4008
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    },
+    {
+      "role": "user",
+      "content": {
+        "root": {
+          "children": [
+            {
+              "children": [
+                {
+                  "detail": 0,
+                  "format": 0,
+                  "mode": "normal",
+                  "style": "",
+                  "text": "keep the security perspective heading a separate callout from this complete",
+                  "type": "text",
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "format": "",
+              "indent": 0,
+              "type": "paragraph",
+              "version": 1,
+              "textFormat": 0,
+              "textStyle": ""
+            }
+          ],
+          "direction": "ltr",
+          "format": "",
+          "indent": 0,
+          "type": "root",
+          "version": 1
+        }
+      },
+      "promptContent": [
+        {
+          "type": "text",
+          "text": "\n\nkeep the security perspective heading a separate callout from this complete\n\n"
+        }
+      ],
+      "id": "716182e8-4c26-42c2-a1a6-6503f16c39b8",
+      "mentionables": [
+        {
+          "type": "current-file",
+          "file": "Rsync Protocol.md"
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": "I have separated the **Security Perspective** section into its own callout, distinct from the **Common rsync Usage Models** block.\n\n<smtcmp_block filename=\"Rsync Protocol.md\" language=\"markdown\">\n<!-- ... existing content ... -->\n> [!h3] ### Common rsync Usage Models\n> There are two major ways rsync works.\n>\n> > [!h4] #### Model 1: Local Synchronization\n> > Both directories exist on the same machine.\n> >\n> > Example:\n> > ```\n> > Computer\n> > \n> > /home/user/data\n> > \n> >         |\n> >         |\n> >         ▼\n> > \n> > /backup/data\n> > ```\n> >\n> > Command idea:\n> > ```bash\n> > rsync source destination\n> > ```\n> >\n> > Example:\n> > ```bash\n> > rsync photos/ backup/\n> > ```\n> >\n> > Meaning:\n> > \"Synchronize the photos directory into backup.\"\n>\n> > [!h4] #### Model 2: Remote Synchronization\n> > The source and destination are on different machines.\n> >\n> > Example:\n> > ```\n> > Attacker/Test Machine             Server\n> > \n> >      Client                       Server\n> >         |                           |\n> >         |------ rsync protocol ---->|\n> >         |                           |\n> > ```\n> >\n> > Used for:\n> > - Backups\n> > - Server replication\n> > - File deployment\n\n> [!h3] ### Security Perspective\n>\n> ###### Why Attackers Care About rsync\n> From a penetration testing perspective, rsync is interesting because it may expose:\n> - Sensitive files\n> - Backup data\n> - Configuration files\n> - Credentials\n> - Source code\n> - Internal documents\n>\n> A poorly configured rsync service can accidentally become a data leak.\n>\n> ##### **Common Security Weaknesses**\n> | #   | Security Weakness         | EXPLANATION                                                                            | Risk                                                 |\n> | --- | ------------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------------- |\n> | 1   | Anonymous Access          | No authentication is required to access the rsync server.                              | Attackers may download exposed data.                 |\n> | 2   | Weak Access Control       | A user intended for `/backup/public` can access `/backup/all_system_files`.            | Sensitive files may be unintentionally exposed.      |\n> | 3   | Sensitive Backup Exposure | Backups may contain database dumps, password files, SSH keys, and application secrets. | Attackers can obtain highly valuable information.    |\n> | 4   | Poor File Permissions     | Example: `-rwxrwxrwx backup.tar.gz`                                                    | Too many users may access or modify sensitive files. |\n\n> [!h4] #### Normal Working\n<!-- ... existing content ... -->\n</smtcmp_block>",
+      "id": "59b2a627-5289-45e9-8d5f-6ce2f8797a98",
+      "metadata": {
+        "model": {
+          "providerType": "gemini",
+          "providerId": "gemini",
+          "id": "gemini-3-flash-preview",
+          "model": "gemini-3-flash-preview"
+        },
+        "usage": {
+          "prompt_tokens": 3250,
+          "completion_tokens": 676,
+          "total_tokens": 4376
+        }
+      },
+      "providerMetadata": {
+        "gemini": {
+          "thoughtSignature": "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"
+        }
+      }
+    }
+  ],
+  "createdAt": 1788587368193,
+  "updatedAt": 1788587707345,
+  "schemaVersion": 1
+}
