@@ -226,6 +226,8 @@ Now the client can request operations.
 | 3. Tree Connect    | “I want this share.”              | TID/share information   |
 | 4. File Operations | “I want to access this resource.” | Requested data/result   |
 
+___
+
 # Level 3
 ### **The Attack Surface & Enumeration**
 Here are the four primary misconfigurations you are hunting for.
@@ -277,3 +279,5 @@ A Null Session specifically targets the `IPC$` (Inter-Process Communication) sha
 | **8. Test Write Access**    | Check if share allows file uploads        | `smb: \> put test.txt`                                                   | Uploads local `test.txt` to test write/upload permissions.                       |
 | **9. Bulk Exfiltration**    | Download all files recursively            | `smb: \> recurse ON`<br><br>`smb: \> prompt OFF`<br><br>`smb: \> mget *` | Toggles recursive mode, disables prompt confirmations, and downloads every file. |
 | **10. Disconnect**          | Terminate the SMB session                 | `smb: \> exit`                                                           | Safely closes the connection and returns to local shell.                         |
+
+

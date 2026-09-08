@@ -218,7 +218,6 @@ rsync has two major operating modes.
 > rsync process
 > ```
 > 
-> ---
 > 
 > #### What Happens Internally?
 > 
@@ -370,28 +369,38 @@ rsync [OPTIONS] SOURCE DESTINATION
 ```
 
 #### Core Flags and Tags
-| **Flag / Tag**  | **Long Form**          | **Explanation**                                                            |
-| --------------- | ---------------------- | -------------------------------------------------------------------------- |
-| **`-a`**        | `--archive`            | Preserves recursiveness, permissions, ownership, timestamps, and symlinks. |
-| **`-v`**        | `--verbose`            | Shows detailed file names and transfer status during execution.            |
-| **`-h`**        | `--human-readable`     | Formats numbers and file sizes in KB, MB, or GB.                           |
-| **`-z`**        | `--compress`           | Compresses data blocks during network transit to save bandwidth.           |
-| **`-P`**        | `--partial --progress` | Displays live progress and retains incomplete files to allow resume.       |
-| **`-n`**        | `--dry-run`            | Simulates the execution without reading/writing actual changes.            |
-| **`--delete`**  | `--delete`             | Removes files from destination that no longer exist on the source.         |
-| **`-e`**        | `--rsh`                | Specifies the remote shell utility (e.g., custom SSH commands).            |
-| **`--exclude`** | `--exclude=PATTERN`    | Skips files or directories matching the specified pattern.                 |
-| **`--bwlimit`** | `--bwlimit=RATE`       | Caps I/O and network transfer speed to a maximum KB/s.                     |
+| **Flag / Tag**    | **Long Form**          | **Crisp Explanation**                                                      |
+| ----------------- | ---------------------- | -------------------------------------------------------------------------- |
+| **`-a`**          | `--archive`            | Preserves recursiveness, permissions, ownership, timestamps, and symlinks. |
+| **`-v`**          | `--verbose`            | Shows detailed file names and transfer status during execution.            |
+| **`-h`**          | `--human-readable`     | Formats numbers and file sizes in KB, MB, or GB.                           |
+| **`-z`**          | `--compress`           | Compresses data blocks during network transit to save bandwidth.           |
+| **`-P`**          | `--partial --progress` | Displays live progress and retains incomplete files to allow resume.       |
+| **`-n`**          | `--dry-run`            | Simulates the execution without reading/writing actual changes.            |
+| **`--delete`**    | `--delete`             | Removes files from destination that no longer exist on the source.         |
+| **`-e`**          | `--rsh`                | Specifies the remote shell utility (e.g., custom SSH commands).            |
+| **`--exclude`**   | `--exclude=PATTERN`    | Skips files or directories matching the specified pattern.                 |
+| **`--bwlimit`**   | `--bwlimit=RATE`       | Caps I/O and network transfer speed to a maximum KB/s.                     |
+| **`--list-only`** | `--list-only`          | Displays source files and directories without copying any data.            |
 
-#### Everyday Local Operations
-| **Task**                        | **Command**                       | **Explanation**                                                 |
-| ------------------------------- | --------------------------------- | --------------------------------------------------------------- |
-| **Basic Directory Copy**        | `rsync -av /src/ /dst/`           | Clones directory contents while keeping file metadata intact.   |
-| **Directory-in-Directory Copy** | `rsync -av /src /dst/`            | Creates `/dst/src/` by omitting the source trailing slash.      |
-| **Safe Test (Dry Run)**         | `rsync -avhn /src/ /dst/`         | Shows exact transfer preview without touching any files.        |
-| **Exact Mirror**                | `rsync -avh --delete /src/ /dst/` | Syncs content and deletes unmatched destination files.          |
-| **Update Only**                 | `rsync -avu /src/ /dst/`          | Skips destination files that are already newer than the source. |
+#### Commands to Interact with a Remote Host
+| **Step**                            | **Action**                    | **Command**                                             | **Example**                                       |
+| ----------------------------------- | ----------------------------- | ------------------------------------------------------- | ------------------------------------------------- |
+| **1. Enumerate Shares**             | List available modules        | `rsync -av --list-only <TARGET_IP>::`                   | `rsync -av --list-only 10.10.10.50::`             |
+| **2. List Files**                   | Inspect share contents        | `rsync -av --list-only <TARGET_IP>::<MODULE>/`          | `rsync -av --list-only 10.10.10.50::backups/`     |
+| **3. Download (Pull)**              | Download share files          | `rsync -avzP <TARGET_IP>::<MODULE>/ ./local_dir/`       | `rsync -avzP 10.10.10.50::backups/ ./loot/`       |
+| **4. Upload (Push)**                | Test write access             | `rsync -avzP ./test.txt <TARGET_IP>::<MODULE>/`         | `rsync -avzP ./test.txt 10.10.10.50::backups/`    |
+| **5. Custom Port (If needed)**      | Target non-default port       | `rsync -av --port=<PORT> --list-only <TARGET_IP>::`     | `rsync -av --port=8730 --list-only 10.10.10.50::` |
+| **6. Authentication (If required)** | Authenticate with credentials | `rsync -avz <USER>@<TARGET_IP>::<MODULE>/ ./local_dir/` | `rsync -avz admin@10.10.10.50::backups/ ./loot/`  |
 
+#### Step by Step Real Basic HTB Machine
+| **Step**                | **Purpose**                            | **Command**                                         | **Result / What to Look For**                       |
+| ----------------------- | -------------------------------------- | --------------------------------------------------- | --------------------------------------------------- |
+| **1. Enumerate Shares** | Discover accessible daemon modules     | `rsync -av --list-only 10.129.228.37::`             | Found share name: `public`                          |
+| **2. Inspect Module**   | List files inside the discovered share | `rsync -av --list-only 10.129.228.37::public`       | Found target file: `flag.txt`                       |
+| **3. Download File**    | Transfer file without                  | `rsync -av 10.129.228.37::public/flag.txt flag.txt` | File downloaded to current directory (`/home/kali`) |
+| **4. Verify File**      | Confirm file exists locally            | `ls`                                                | `flag.txt` is visible in folder contents            |
+| **5. Read Content**     | View the retrieved flag                | `cat flag.txt`                                      | Output: `72eaf5344ebb84908ae543a719830519`          |
 #### Remote Operations (Over SSH)
 | **Task**                  | **Command**                                            | **Explanation**                                                 |
 | ------------------------- | ------------------------------------------------------ | --------------------------------------------------------------- |
@@ -431,15 +440,15 @@ rsync [OPTIONS] SOURCE [USER@]HOST::MODULE[/PATH]
 | **`--list-only`**     | `--list-only`          | Lists available modules or directory contents without transferring data. |
 
 #### Client Commands (Interacting with a Daemon)
-| **Task**                   | **Command**                                               | **Crisp Explanation**                                                |
-| -------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------- |
-| **List Public Modules**    | `rsync rsync://remote_host/`                              | Queries the server to list all publicly visible shared modules.      |
-| **List Module Contents**   | `rsync -av --list-only remote_host::backup_mod`           | Displays the files inside a module without downloading them.         |
-| **Pull from Module**       | `rsync -avzP remote_host::backup_mod /local/path/`        | Downloads all contents of the remote module to a local path.         |
-| **Push to Module**         | `rsync -avzP /local/path/ remote_host::backup_mod`        | Uploads local files to the specified remote daemon module.           |
-| **Authenticated Sync**     | `rsync -avz user@remote_host::backup_mod /local/path/`    | Authenticates using modular credentials defined in `rsyncd.secrets`. |
-| **Scripted Password**      | `rsync -av --password-file=pass.txt user@host::mod /dest` | Uses an automated password file (`chmod 600`) for headless jobs.     |
-| **Custom Port Connection** | `rsync -av --port=8730 remote_host::backup_mod /dst/`     | Connects to a daemon running on a non-standard port.                 |
+|**Task**|**Command**|**Crisp Explanation**|**Example**|
+|---|---|---|---|
+|**List Public Modules**|`rsync rsync://remote_host/`|Queries the server to list all publicly visible shared modules.|`rsync rsync://192.168.1.50/`|
+|**List Module Contents**|`rsync -av --list-only remote_host::backup_mod`|Displays the files inside a module without downloading them.|`rsync -av --list-only 192.168.1.50::backups`|
+|**Pull from Module**|`rsync -avzP remote_host::backup_mod /local/path/`|Downloads all contents of the remote module to a local path.|`rsync -avzP 192.168.1.50::backups /home/user/data/`|
+|**Push to Module**|`rsync -avzP /local/path/ remote_host::backup_mod`|Uploads local files to the specified remote daemon module.|`rsync -avzP /home/user/data/ 192.168.1.50::backups`|
+|**Authenticated Sync**|`rsync -avz user@remote_host::backup_mod /local/path/`|Authenticates using modular credentials defined in rsyncd.secrets.|`rsync -avz operator@192.168.1.50::confidential /local/backup/`|
+|**Scripted Password**|`rsync -av --password-file=pass.txt user@host::mod /dest`|Uses an automated password file (chmod 600) for headless jobs.|`rsync -av --password-file=/etc/rsync.pass backupuser@192.168.1.50::db_dumps /var/backups/`|
+|**Custom Port Connection**|`rsync -av --port=8730 remote_host::backup_mod /dst/`|Connects to a daemon running on a non-standard port.|`rsync -av --port=8730 192.168.1.50::backups /opt/restore/`|
 
 #### Server Administration Commands
 | **Task**                  | **Command**                                      | **Crisp Explanation**                                                |
