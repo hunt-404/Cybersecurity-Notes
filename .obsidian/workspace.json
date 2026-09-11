@@ -11,10 +11,14 @@
             "id": "756bcac6b1552af1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Concepts/Git Github Guide.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Git Github Guide"
             }
           }
         ]
@@ -183,6 +187,7 @@
   },
   "active": "756bcac6b1552af1",
   "lastOpenFiles": [
+    "New Folder",
     "Tools/Netcat (nc).md",
     "Tools/curl - (Client URL).md",
     "Tools/Nmap.md",
