@@ -4,67 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "f6cadc46ef6ab1b1",
+        "id": "c177b311daa26fb0",
         "type": "tabs",
         "children": [
           {
-            "id": "7de6b211375e4f04",
+            "id": "756bcac6b1552af1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Concepts/Jenkins.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Jenkins"
-            }
-          },
-          {
-            "id": "c8a1748ebb81c28e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Nmap.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Nmap"
-            }
-          },
-          {
-            "id": "c0f065721883b6c0",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/curl - (Client URL).md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "curl - (Client URL)"
-            }
-          },
-          {
-            "id": "2ddebf5c33a90a0a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Tools/Netcat (nc).md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Netcat (nc)"
+              "title": "New tab"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "vertical"
@@ -126,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "52e6fae7e825121a",
@@ -227,14 +181,14 @@
       "callout-studio:Quick insert block callout": false
     }
   },
-  "active": "2ddebf5c33a90a0a",
+  "active": "756bcac6b1552af1",
   "lastOpenFiles": [
-    "Pasted image 20260911075051.png",
-    "Tools/curl - (Client URL).md",
     "Tools/Netcat (nc).md",
+    "Tools/curl - (Client URL).md",
     "Tools/Nmap.md",
-    "OSCP/OSCP - Topics Relevance.md",
     "Concepts/Jenkins.md",
+    "Pictures/Pasted image 20260911075051.png",
+    "OSCP/OSCP - Topics Relevance.md",
     "OSCP",
     "HTB Machines/SMB/SP 1 - SMB Enumeration (Administrator No Password).md",
     "Concepts/MongoDB.md",
@@ -273,7 +227,6 @@
     "Obsidian-Cybersecurity-Notes/Concepts/Web Application Architecture.md",
     "Obsidian-Cybersecurity-Notes/Concepts/SMB (Server Message Block).md",
     "Obsidian-Cybersecurity-Notes/Concepts/RDP (Remote Desktop Protocol) Basics.md",
-    "Obsidian-Cybersecurity-Notes/Concepts/MongoDB.md",
-    "pixel-banner-images/kali-contours.png"
+    "Obsidian-Cybersecurity-Notes/Concepts/MongoDB.md"
   ]
 }
