@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "c177b311daa26fb0",
+        "id": "24bea69cfd04324e",
         "type": "tabs",
         "children": [
           {
-            "id": "756bcac6b1552af1",
+            "id": "e8e82293286d0915",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Concepts/Git Github Guide.md",
+                "file": "Linux/Linux File System/Linux File System.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Git Github Guide"
+              "title": "Linux File System"
             }
           }
         ]
@@ -185,12 +185,30 @@
       "callout-studio:Quick insert block callout": false
     }
   },
-  "active": "756bcac6b1552af1",
+  "active": "e8e82293286d0915",
   "lastOpenFiles": [
+    "Pictures/Pasted image 20260912055017.png",
+    "Linux/Linux File System/Linux File System.md",
+    "Pasted image 20260912054830.png",
+    "Pasted image 20260912054659.png",
+    "Pasted image 20260912054655.png",
+    "Pasted image 20260912054645.png",
+    "Pasted image 20260912054137.png",
+    "Pasted image 20260912053933.png",
+    "Pasted image 20260912053904.png",
+    "Pasted image 20260912053657.png",
+    "Concepts/Local Hostname Resolution.md",
+    "Linux/Linux File System",
+    "Linux",
+    "Tools/curl - (Client URL).md",
+    "Tools/Gobuster.md",
+    "Tools/Nmap.md",
+    "Concepts/Directory Busting - Web Application (Security Misconfigurations).md",
+    "Linux/Linux Commands/Pipe Command.md",
+    "Linux/Linux Commands",
+    "Concepts/Git Github Guide.md",
     "New Folder",
     "Tools/Netcat (nc).md",
-    "Tools/curl - (Client URL).md",
-    "Tools/Nmap.md",
     "Concepts/Jenkins.md",
     "Pictures/Pasted image 20260911075051.png",
     "OSCP/OSCP - Topics Relevance.md",
@@ -201,37 +219,18 @@
     "Concepts/SMB (Server Message Block).md",
     "HTB Machines",
     "Concepts/Rsync Protocol.md",
-    "Pictures/Pasted image 20260905025234.png",
-    "Concepts/Directory Busting - Web Application (Security Misconfigurations).md",
-    "Concepts/Git Github Guide.md",
-    "Pictures/Pasted image 20260902061116.png",
-    "Tools/Gobuster.md",
     "Tools",
-    "Pictures/Pasted image 20260827080950.png",
-    "Pictures/Pasted image 20260824025555.png",
-    "Pictures/Pasted image 20260824023752.png",
     "Pictures",
     "HTB Path/HTB Path.md",
     "HTB Path",
     "Concepts/Web Application Architecture.md",
     "Concepts/RDP (Remote Desktop Protocol) Basics.md",
     "Concepts/FTP (File Transfer Protocol).md",
-    "Concepts",
     "Obsidian-Cybersecurity-Notes/Tools/Nmap.md",
     "Obsidian-Cybersecurity-Notes/Tools/Gobuster.md",
-    "Obsidian-Cybersecurity-Notes/Tools",
-    "Obsidian-Cybersecurity-Notes/Pictures/Pasted image 20260827080950.png",
-    "Obsidian-Cybersecurity-Notes/Pictures/Pasted image 20260824025555.png",
-    "Obsidian-Cybersecurity-Notes/Pictures/Pasted image 20260824023752.png",
-    "Obsidian-Cybersecurity-Notes/Pictures",
-    "Obsidian-Cybersecurity-Notes/Pasted image 20260902061116.png",
     "Obsidian-Cybersecurity-Notes/HTB Path/HTB Path.md",
-    "Obsidian-Cybersecurity-Notes/HTB Path",
     "Obsidian-Cybersecurity-Notes/Concepts/Git Github Guide.md",
     "Obsidian-Cybersecurity-Notes/Concepts/Directory Busting - Web Application (Security Misconfigurations).md",
-    "Obsidian-Cybersecurity-Notes/Concepts/Web Application Architecture.md",
-    "Obsidian-Cybersecurity-Notes/Concepts/SMB (Server Message Block).md",
-    "Obsidian-Cybersecurity-Notes/Concepts/RDP (Remote Desktop Protocol) Basics.md",
-    "Obsidian-Cybersecurity-Notes/Concepts/MongoDB.md"
+    "Obsidian-Cybersecurity-Notes/Concepts/Web Application Architecture.md"
   ]
 }
